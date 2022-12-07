@@ -2,6 +2,7 @@ import 'package:app_geolocalizacion/controlador/ControladorGeneral.dart';
 import 'package:app_geolocalizacion/interface/listar.dart';
 import 'package:app_geolocalizacion/procesos/peticiones.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
@@ -32,6 +33,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   ControladorGeneral control = Get.find();
+
+  void ObtenerPosicion() async {
+    Position posicion = await peticionesDB.determinePosition();
+    print(posicion.toString());
+    control.cargarUnaPosicion(posicion.toString());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,9 +78,12 @@ class _MyHomePageState extends State<MyHomePage> {
       body: listar(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          ObtenerPosicion();
           Alert(
                   title: "ATENCION!!!!",
-                  desc: "Esta seguro que desea almacenar su ubicacion?",
+                  desc: "Esta seguro que desea almacenar su ubicacion. " +
+                      control.unaPosicion +
+                      "?",
                   type: AlertType.success,
                   buttons: [
                     DialogButton(
@@ -81,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text("SI"),
                         onPressed: () {
                           peticionesDB.GuardarPosicion(
-                              "123456.789012", DateTime.now().toString());
+                              control.unaPosicion, DateTime.now().toString());
                           control.CargarTodaLaBaseDeDatos();
                           Navigator.pop(context);
                         }),
