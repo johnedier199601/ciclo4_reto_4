@@ -1,16 +1,10 @@
-# app_geolocalizacion
+# reto_4
 
-A new Flutter project.
+Aplicacion de geolocalizacion
 
-## Getting Started
+Ciclo 4 - Reto 3 - Grupo 12
 
-This project is a starting point for a Flutter application.
+https://github.com/johnedier199601/ciclo4_reto_4/blob/main/Reto4.gif
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[![Alt text](https://img.youtube.com/vi/OEyjY00KmlI/0.jpg)](https://www.youtube.com/watch?v=OEyjY00KmlI)
